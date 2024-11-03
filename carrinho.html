@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - Azubel Ursos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Azubel Ursos - Carrinho</h1>
+    </header>
+
+    <main>
+        <h2>Seu Carrinho</h2>
+        <div class="carrinho-container">
+            <ul id="resumoCarrinho"></ul>
+            <p>Total: <span id="totalCarrinho">R$ 0,00</span></p>
+            <button onclick="window.location.href='checkout.html'">Ir para Checkout</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Azubel Ursos. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+        function carregarCarrinho() {
+            const resumoCarrinho = document.getElementById('resumoCarrinho');
+            const totalCarrinho = document.getElementById('totalCarrinho');
+            resumoCarrinho.innerHTML = '';
+            let total = 0;
+
+            carrinho.forEach(produto => {
+                const li = document.createElement('li');
+                li.textContent = `${produto.nome} - R$ ${produto.preco.toFixed(2)}`;
+                resumoCarrinho.appendChild(li);
+                total += parseFloat(produto.preco);
+            });
+
+            totalCarrinho.textContent = `R$ ${total.toFixed(2)}`;
+        }
+
+        document.addEventListener('DOMContentLoaded', carregarCarrinho);
+    </script>
+</body>
+</html>
+<script src="script.js"></script>

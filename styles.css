@@ -1,0 +1,187 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Cor de fundo mais escura */
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #1a1a1a; /* Fundo do cabeçalho */
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid #00b300; /* Linha de destaque */
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+nav a {
+    color: #00b300;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #66ff66; /* Cor ao passar o mouse */
+}
+
+.hero {
+    background-color: #00b300; /* Fundo da seção principal */
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.produtos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.produto {
+    background-color: #2e2e2e; /* Fundo dos produtos */
+    border: 1px solid #00b300;
+    border-radius: 10px;
+    margin: 15px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.produto:hover {
+    transform: scale(1.05); /* Aumenta o produto ao passar o mouse */
+}
+
+.produto img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.produto button {
+    background-color: #00b300; /* Botão de adicionar */
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.produto button:hover {
+    background-color: #007f00; /* Cor do botão ao passar o mouse */
+}
+
+.checkout-container {
+    max-width: 500px;
+    margin: auto;
+    background-color: #2e2e2e; /* Fundo do checkout */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1a1a1a; /* Fundo do rodapé */
+    border-top: 3px solid #00b300; /* Linha de destaque */
+}
+
+.qrcode-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.order-summary {
+    margin-bottom: 20px;
+}
+
+.button-whatsapp {
+    background-color: #25D366; /* Cor do botão do WhatsApp */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.button-whatsapp:hover {
+    background-color: #1DA851; /* Cor ao passar o mouse */
+}
+
+@media (max-width: 600px) {
+    .produtos-container {
+        flex-direction: column; /* Coloca os produtos em coluna em telas menores */
+        align-items: center;
+    }
+
+    .produto {
+        width: 90%; /* Largura total em telas pequenas */
+    }
+}
+.checkout-container {
+    max-width: 500px;
+    margin: auto;
+    background-color: #2e2e2e; /* Fundo do checkout */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="email"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #00b300; /* Borda verde */
+    border-radius: 5px;
+    background-color: #1a1a1a; /* Fundo do campo */
+    color: #e0e0e0; /* Cor do texto */
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus {
+    border-color: #66ff66; /* Cor ao focar */
+    outline: none; /* Remove o contorno padrão */
+}
+
+button[type="submit"] {
+    background-color: #00b300; /* Cor do botão */
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: #007f00; /* Cor ao passar o mouse */
+}

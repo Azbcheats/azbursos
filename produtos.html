@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - Azubel Ursos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Azubel Ursos</h1>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="carrinho.html">Carrinho</a>
+            <a href="whatsapp.html" class="button-whatsapp">Contato WhatsApp</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Nossos Produtos</h2>
+        <div class="produtos-container" id="produtosContainer">
+            <!-- Os produtos serão adicionados aqui pelo JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Azubel Ursos. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const produtos = [];
+        const numeroDeUrsos = 50; // Total de ursos a serem adicionados
+
+        // Gerando 50 ursos de pelúcia
+        for (let i = 1; i <= numeroDeUrsos; i++) {
+            produtos.push({
+                nome: `Urso Pelúcia ${i}`,
+                preco: (Math.random() * (100 - 30) + 30).toFixed(2), // Preço entre R$30 e R$100
+                imagem: 'urso.png', // Substitua por URLs reais
+            });
+        }
+
+        // Função para exibir os produtos
+        function exibirProdutos() {
+            const container = document.getElementById('produtosContainer');
+            produtos.forEach(produto => {
+                const produtoDiv = document.createElement('div');
+                produtoDiv.classList.add('produto');
+                produtoDiv.innerHTML = `
+                    <img src="${produto.imagem}" alt="${produto.nome}">
+                    <h3>${produto.nome}</h3>
+                    <p>R$ ${produto.preco}</p>
+                    <div>
+                        <input type="number" value="1" min="1" id="quantidade${produto.nome.replace(/\s+/g, '')}">
+                        <button onclick="adicionarAoCarrinho('${produto.nome}', ${produto.preco}, document.getElementById('quantidade${produto.nome.replace(/\s+/g, '')}').value)">Adicionar ao Carrinho</button>
+                    </div>
+                `;
+                container.appendChild(produtoDiv);
+            });
+        }
+
+        // Chama a função para exibir os produtos
+        exibirProdutos();
+    </script>
+</body>
+</html>
+
+</html>

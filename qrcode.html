@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code - Azubel Ursos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Azubel Ursos - QR Code para PIX</h1>
+    </header>
+
+    <main>
+        <div class="qrcode-container">
+            <h2>Finalize seu Pagamento</h2>
+            <div id="qrcode"></div>
+            <p>Valor a ser pago: <span id="valorPagamento"></span></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Azubel Ursos. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const valor = urlParams.get('valor');
+            const cpf = "44531319842"; // CPF para o PIX
+
+            $('#valorPagamento').text(`R$ ${valor}`);
+            $('#qrcode').qrcode({
+                text: `00020101021129370016BR.GOV.BCB.PIX0114${cpf}5204000053039865802${valor}6304...` // Formato do QR Code PIX (simplificado)
+            });
+        });
+    </script>
+</body>
+</html>
